@@ -1,0 +1,5 @@
+﻿  drawBoard.cpp
+c:\users\nikla\source\repos\project12\project12\drawboard.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "SFML/Graphics.hpp": No such file or directory
+  main.cpp
+c:\users\nikla\source\repos\project12\project12\main.cpp(1): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "SFML/Graphics.hpp": No such file or directory
+  Code wird generiert...
