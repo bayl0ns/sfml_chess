@@ -13,9 +13,6 @@ public:
 	DrawBoard();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	
-	void player1WhiteMove();
-	void player2BlackMove();
-
 
 	bool checkIfTargetSquareIsValid(float x, float y, int index);
 
@@ -77,9 +74,7 @@ public:
 	sf::Sprite sBlackBishop0;
 	sf::Sprite sBlackBishop1;
 
-
-	std::vector<sf::Vector2f> vGetVector;
-	std::vector<sf::Sprite> v;
+	std::vector<sf::Vector2f> vSquares;
 
 private:
 	

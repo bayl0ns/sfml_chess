@@ -4,10 +4,6 @@
 #include <vector>
 #include "drawBoard.h"
  
-
-//GITHUB TEST
-
-
 const float fx0 = 121.875;
 const float fx1 = fx0 * 2;
 const float fx2 = fx0 * 3;
@@ -91,15 +87,29 @@ int main()
 	shape1.setOrigin(shape1.getGlobalBounds().height / 2, shape1.getGlobalBounds().width / 2);
 
 
+	/*TEST*/
+
+	sf::CircleShape testShape;
+	
+	testShape.setRadius(15);
+	testShape.setFillColor(sf::Color::Red);
+	testShape.setPosition(-100, -200);
+	testShape.setOrigin(testShape.getGlobalBounds().height / 2, testShape.getGlobalBounds().width / 2);
+
+
+	/*TEST END*/
+
 	std::vector<sf::CircleShape> vMoveIndicationCircles;
 
 	vMoveIndicationCircles.push_back(shape0);
 	vMoveIndicationCircles.push_back(shape1);
 
-	DrawBoard board;
+	DrawBoard *board = new DrawBoard;
 	sf::Clock clock;
 
-	board.setAllSprites();
+	board->setAllSprites();
+	
+
 
 	while (window.isOpen())
 	{
@@ -135,65 +145,65 @@ int main()
 		
 		
 		if (mousePressed && whitesTurn && !WhiteStartPieceSelected) {
-			if (board.sWhitePawn0.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			if (board->sWhitePawn0.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP0 ") {
+					if (board->sBoard[i] == "WP0 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn1.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn1.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP1 ") {
+					if (board->sBoard[i] == "WP1 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn2.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn2.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP2 ") {
+					if (board->sBoard[i] == "WP2 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn3.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn3.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP3 ") {
+					if (board->sBoard[i] == "WP3 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn4.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn4.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP4 ") {
+					if (board->sBoard[i] == "WP4 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn5.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn5.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP5 ") {
+					if (board->sBoard[i] == "WP5 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn6.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn6.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP6 ") {
+					if (board->sBoard[i] == "WP6 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
 				}
 			}
-			else if (board.sWhitePawn7.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+			else if (board->sWhitePawn7.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 				for (int i = 0; i < 64; i++) {
-					if (board.sBoard[i] == "WP7 ") {
+					if (board->sBoard[i] == "WP7 ") {
 						startPiece = i;
 						WhiteStartPieceSelected = true;
 					}
@@ -203,65 +213,65 @@ int main()
 			////////////////////BLACK//////////////////////////////////////////
 
 			if (mousePressed && blacksTurn && !blacksStartPieceSelected) {
-				if (board.sBlackPawn0.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				if (board->sBlackPawn0.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP0 ") {
+						if (board->sBoard[i] == "BP0 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn1.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn1.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP1 ") {
+						if (board->sBoard[i] == "BP1 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn2.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn2.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP2 ") {
+						if (board->sBoard[i] == "BP2 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn3.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn3.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP3 ") {
+						if (board->sBoard[i] == "BP3 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn4.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn4.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP4 ") {
+						if (board->sBoard[i] == "BP4 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn5.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn5.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP5 ") {
+						if (board->sBoard[i] == "BP5 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn6.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn6.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP6 ") {
+						if (board->sBoard[i] == "BP6 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
 					}
 				}
-				else if (board.sBlackPawn7.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+				else if (board->sBlackPawn7.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
 					for (int i = 0; i < 64; i++) {
-						if (board.sBoard[i] == "BP7 ") {
+						if (board->sBoard[i] == "BP7 ") {
 							startPiece = i;
 							blacksStartPieceSelected = true;
 						}
@@ -271,15 +281,15 @@ int main()
 
 
 				//push all legal moves from selected piece into vector
-				if (board.sBoard[startPiece] == "WP0 " || board.sBoard[startPiece] == "WP1 " || board.sBoard[startPiece] == "WP2 " || board.sBoard[startPiece] == "WP3 " ||
-					board.sBoard[startPiece] == "WP4 " || board.sBoard[startPiece] == "WP5 " || board.sBoard[startPiece] == "WP6 " || board.sBoard[startPiece] == "WP7 ")
+				if (board->sBoard[startPiece] == "WP0 " || board->sBoard[startPiece] == "WP1 " || board->sBoard[startPiece] == "WP2 " || board->sBoard[startPiece] == "WP3 " ||
+					board->sBoard[startPiece] == "WP4 " || board->sBoard[startPiece] == "WP5 " || board->sBoard[startPiece] == "WP6 " || board->sBoard[startPiece] == "WP7 ")
 				{
-					std::cout << board.sBoard[startPiece - 8] << std::endl;
-					if (board.sBoard[startPiece - 8] == " X  ")
+					std::cout << board->sBoard[startPiece - 8] << std::endl;
+					if (board->sBoard[startPiece - 8] == " X  ")
 					{
 						vLegalMoves.push_back(startPiece - 8);
 					}
-					if (board.sBoard[startPiece - 8] == " X  " && board.sBoard[startPiece - 16] == " X  ")
+					if (board->sBoard[startPiece - 8] == " X  " && board->sBoard[startPiece - 16] == " X  ")
 					{
 						vLegalMoves.push_back(startPiece - 16);
 					}
@@ -288,15 +298,15 @@ int main()
 				}
 
 				//same for blacks pawns
-				if (board.sBoard[startPiece] == "BP0 " || board.sBoard[startPiece] == "BP1 " || board.sBoard[startPiece] == "BP2 " || board.sBoard[startPiece] == "BP3 " ||
-					board.sBoard[startPiece] == "BP4 " || board.sBoard[startPiece] == "BP5 " || board.sBoard[startPiece] == "BP6 " || board.sBoard[startPiece] == "BP7 ")
+				if (board->sBoard[startPiece] == "BP0 " || board->sBoard[startPiece] == "BP1 " || board->sBoard[startPiece] == "BP2 " || board->sBoard[startPiece] == "BP3 " ||
+					board->sBoard[startPiece] == "BP4 " || board->sBoard[startPiece] == "BP5 " || board->sBoard[startPiece] == "BP6 " || board->sBoard[startPiece] == "BP7 ")
 				{
-					std::cout << board.sBoard[startPiece + 8] << std::endl;
-					if (board.sBoard[startPiece + 8] == " X  ")
+					std::cout << board->sBoard[startPiece + 8] << std::endl;
+					if (board->sBoard[startPiece + 8] == " X  ")
 					{
 						vLegalMoves.push_back(startPiece - 8);
 					}
-					if (board.sBoard[startPiece + 8] == " X  " && board.sBoard[startPiece + 16] == " X  ")
+					if (board->sBoard[startPiece + 8] == " X  " && board->sBoard[startPiece + 16] == " X  ")
 					{
 						vLegalMoves.push_back(startPiece + 16);
 					}
@@ -327,15 +337,15 @@ int main()
 			{
 				for (int i = 0; i < vLegalMoves.size(); i++)
 				{
-					if (board.getIndexFromMousePosition(x, y) == vLegalMoves[i])
+					if (board->getIndexFromMousePosition(x, y) == vLegalMoves[i])
 					{
 						targetPiece = vLegalMoves[i];
 						//std::cout << "target: " << targetPiece << std::endl;
 						std::string helper;
 
-						helper = board.sBoard[targetPiece];
-						board.sBoard[targetPiece] = board.sBoard[startPiece];
-						board.sBoard[startPiece] = helper;
+						helper = board->sBoard[targetPiece];
+						board->sBoard[targetPiece] = board->sBoard[startPiece];
+						board->sBoard[startPiece] = helper;
 
 						vLegalMoves.clear();
 						needToDisplay = false;
@@ -352,11 +362,13 @@ int main()
 
 			std::cout << "are indics: " << areIndicationsShowing << std::endl;
 
-			board.setAllSprites();
+			board->setAllSprites();
+
 
 			window.clear();
 
-			board.draw(window, states);
+			board->draw(window, states);
+			window.draw(testShape);
 			if (areIndicationsShowing)
 			{
 				window.draw(vMoveIndicationCircles[0]);
