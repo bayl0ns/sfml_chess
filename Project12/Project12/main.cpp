@@ -326,7 +326,8 @@ int main()
 			{
 				for (int i = 0; i < vLegalMoves.size(); i++)
 				{
-					vMoveIndicationCircles[i].setPosition(lU[vLegalMoves[i]].xLinePos, lU[vLegalMoves[i]].yLinePos);
+					vMoveIndicationCircles[i].setPosition(board->vSquares[vLegalMoves[i]]);  // readability improved
+					//vMoveIndicationCircles[i].setPosition(lU[vLegalMoves[i]].xLinePos, lU[vLegalMoves[i]].yLinePos); old
 				}
 				areIndicationsShowing = true;
 				rdyForTargetSelection = true;
